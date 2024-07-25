@@ -32,12 +32,6 @@ variable "network" {
     firewall   = bool
     dns        = string
   })
-  default = {
-    bridge     = "Trusted"
-    card_model = "virtio"
-    firewall   = false
-    dns        = "lab.markaplay.net"
-  }
   validation {
     condition     = can(regex("(^10\\.)|(^172\\.1[6-9]\\.)|(^172\\.2[0-9]\\.)|(^172\\.3[0-1]\\.)|(^192\\.168\\.)", var.network.ip_address))
     error_message = "IP address is not within the private ranges"
